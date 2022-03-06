@@ -1,0 +1,67 @@
+﻿<Window x:Class="Cinema.AchatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema"
+        mc:Ignorable="d"
+        Title="Achat" Height="450" Width="800">
+    <Grid Background="AliceBlue" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Choisir l'horaire :"/>
+                <ComboBox x:Name="comboHoraire" Grid.Column="1" HorizontalAlignment="Stretch" Width="120" SelectionChanged="comboHoraire_SelectionChanged"/>
+                <Label Grid.Column="2" Content="5.20€ à 11h10" HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Choisir le jour :"/>
+                <ComboBox x:Name="comboJour" Grid.Column="1" HorizontalAlignment="Stretch"  Width="120" SelectionChanged="comboJour_SelectionChanged"/>
+                <Label Grid.Column="2" Content="5.70€ le lundi" HorizontalAlignment="Center"/>
+            </Grid>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <CheckBox x:Name="tarifCE" Content="Tarif spécial CE : 5.20€" Checked="tarifCE_Checked" Unchecked="tarifCE_Unchecked"/>
+            <Border x:Name="grTarifs" BorderThickness="1">
+                <StackPanel>
+                    <Label Content="Autres tarifs"/>
+                    <RadioButton Name ="pleinTarif" GroupName="radioTarif" Content="Plein tarif : 8.70€" Checked="pleinTarif_Checked" />
+                    <RadioButton Name ="etudMineur" GroupName="radioTarif" Content="Etudiant ou mineur : 5.90€" Checked="etudMineur_Checked" />
+                    <RadioButton Name ="autreReduit" GroupName="radioTarif" Content="Autre tarif réduit : 6.90€" Checked="autreReduit_Checked" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <CheckBox x:Name="check3d" Content="Majoration film 3D : 1.50€" Checked="check3d_Checked" Unchecked="check3d_Unchecked" />
+            <CheckBox x:Name="checkReduc" Content="Coupon réduction : 1.00€" Checked="checkReduc_Checked" Unchecked="checkReduc_Unchecked" />
+        </StackPanel>
+
+        <StackPanel  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <Label x:Name="labelTarif" Content="Prix final : 0.00€"  />
+            <Button x:Name="buttonReserver" Content="Réserver" Click="buttonReserver_Click" />
+        </StackPanel>
+
+    </Grid>
+</Window>
